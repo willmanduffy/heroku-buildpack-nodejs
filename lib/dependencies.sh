@@ -136,7 +136,7 @@ yarn_node_modules() {
 
   echo "Installing node modules (yarn.lock)"
   cd "$build_dir" || return
-  monitor "yarn-install" yarn install --frozen-lockfile --prefer-offline 2>&1
+  monitor "yarn-install" yarn install --frozen-lockfile 2>&1
 }
 
 yarn_2_install() {
@@ -178,7 +178,7 @@ yarn_prune_devdependencies() {
     meta_set "skipped-prune" "false"
   else
     cd "$build_dir" || return
-    monitor "yarn-prune" yarn install --frozen-lockfile --ignore-scripts --prefer-offline 2>&1
+    monitor "yarn-prune" yarn install --frozen-lockfile --ignore-scripts 2>&1
     meta_set "skipped-prune" "false"
   fi
 }
