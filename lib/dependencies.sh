@@ -133,11 +133,10 @@ log_build_scripts() {
 
 yarn_node_modules() {
   local build_dir=${1:-}
-  local production=${YARN_PRODUCTION:-false}
 
   echo "Installing node modules (yarn.lock)"
   cd "$build_dir" || return
-  monitor "yarn-install" yarn install --production="$production" --frozen-lockfile --ignore-engines --prefer-offline 2>&1
+  monitor "yarn-install" yarn install --frozen-lockfile --ignore-engines --prefer-offline 2>&1
 }
 
 yarn_2_install() {
